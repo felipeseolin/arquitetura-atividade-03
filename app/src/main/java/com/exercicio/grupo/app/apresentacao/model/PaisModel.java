@@ -13,4 +13,5 @@ public class PaisModel {
 
     private Long id;
     private String nome;
+    private String sigla;
 }

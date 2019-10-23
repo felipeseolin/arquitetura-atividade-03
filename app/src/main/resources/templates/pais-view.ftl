@@ -56,6 +56,11 @@
                         <label for="nome">Nome:</label>
                         <input value="${(paisAtual.nome)!}" name="nome" type="text" class="form-control" id="nome" placeholder="Brasil">
                     </div>
+
+                    <div class="form-group">
+                        <label for="nome">Sigla:</label>
+                        <input value="${(paisAtual.sigla)!}" name="sigla" type="text" class="form-control" id="sigla" placeholder="BR">
+                    </div>
                 </form>
             </div>
 
@@ -64,6 +69,7 @@
                     <thead class="thead-dark">
                     <tr>
                         <th>Nome</th>
+                        <th>Sigla</th>
                         <th>Ações</th>
                     </tr>
                     </thead>
@@ -71,6 +77,7 @@
                     <#list listaPaises as pais>
                     <tr>
                         <td>${pais.nome}</td>
+                        <td>${pais.sigla}</td>
                         <td>
                             <a href="/pais/preparaAlterar/${pais.id}" class="btn btn-warning">Alterar</a>
                             <a href="/pais/apagar/${pais.id}" class="btn btn-danger">Excluir</a>

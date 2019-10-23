@@ -19,9 +19,9 @@ public class PaisController {
 
     public PaisController() {
         paises = Stream.of(
-                PaisModel.builder().id(1L).nome("Brasil").build(),
-                PaisModel.builder().id(2L).nome("China").build(),
-                PaisModel.builder().id(3L).nome("India").build()
+                PaisModel.builder().id(1L).nome("Brasil").sigla("BR").build(),
+                PaisModel.builder().id(2L).nome("China").sigla("CH").build(),
+                PaisModel.builder().id(3L).nome("India").sigla("IN").build()
         ).collect(Collectors.toList());
     }
 
@@ -70,6 +70,7 @@ public class PaisController {
         var paisAtual = buscaPaisPeloId(pais.getId());
 
         paisAtual.setNome(pais.getNome());
+        paisAtual.setSigla(pais.getSigla());
 
         return "redirect:/pais";
     }
