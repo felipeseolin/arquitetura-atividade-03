@@ -89,7 +89,7 @@
                         <th>Telefone</th>
                         <th>Limite de Credito</th>
                         <th>País</th>
-                        <th>Ações</th>
+<!--                        <th>Ações</th>-->
                     </tr>
                     </thead>
                     <tbody>
@@ -100,10 +100,12 @@
                         <td>${cliente.telefone}</td>
                         <td>${cliente.limiteCredito}</td>
                         <td>${cliente.pais.nome}</td>
+                        <!--
                         <td>
                             <a href="/cliente/preparaAlterar/${cliente.id}" class="btn btn-warning">Alterar</a>
                             <a href="/cliente/apagar/${cliente.id}" class="btn btn-danger">Excluir</a>
                         </td>
+                        -->
                     </tr>
                     </#list>
 

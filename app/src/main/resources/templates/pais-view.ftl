@@ -70,7 +70,7 @@
                     <tr>
                         <th>Nome</th>
                         <th>Sigla</th>
-                        <th>Ações</th>
+<!--                        <th>Ações</th>-->
                     </tr>
                     </thead>
                     <tbody>
@@ -78,10 +78,12 @@
                     <tr>
                         <td>${pais.nome}</td>
                         <td>${pais.sigla}</td>
+                        <!--
                         <td>
                             <a href="/pais/preparaAlterar/${pais.id}" class="btn btn-warning">Alterar</a>
                             <a href="/pais/apagar/${pais.id}" class="btn btn-danger">Excluir</a>
                         </td>
+                        -->
                     </tr>
                     </#list>
 
