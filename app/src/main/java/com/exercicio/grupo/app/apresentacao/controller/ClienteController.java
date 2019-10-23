@@ -17,15 +17,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ClienteController {
 
     private List<ClienteModel> clientes;
-    private PaisModel paises;
+    private List<PaisModel> paises;
 
     public ClienteController() {
-        paises = PaisModel.builder().id(1L).nome("Brasil").sigla("BR").build();
+        var paisController = new PaisController();
+        paises = paisController.listaPaises();
 
         clientes = Stream.of(
-                ClienteModel.builder().id(1L).nome("Fulano").idade(12).telefone("123456").limiteCredito("50.25").pais(paises).build(),
-                ClienteModel.builder().id(2L).nome("Ciclano").idade(35).telefone("123456").limiteCredito("12.25").pais(paises).build(),
-                ClienteModel.builder().id(3L).nome("Cipriano").idade(13).telefone("123456").limiteCredito("12.25").pais(paises).build()
+                ClienteModel.builder().id(1L).nome("Fulano").idade(12).telefone("123456").limiteCredito("50.25").pais(paises.get(0)).build(),
+                ClienteModel.builder().id(2L).nome("Ciclano").idade(35).telefone("123456").limiteCredito("12.25").pais(paises.get(0)).build(),
+                ClienteModel.builder().id(3L).nome("Cipriano").idade(13).telefone("123456").limiteCredito("12.25").pais(paises.get(0)).build()
         ).collect(Collectors.toList());
     }
 

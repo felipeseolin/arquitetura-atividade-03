@@ -81,4 +81,8 @@ public class PaisController {
                 .findAny()
                 .orElseThrow(IllegalArgumentException::new);
     }
+
+    public List<PaisModel> listaPaises() {
+        return paises;
+    }
 }

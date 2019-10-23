@@ -72,7 +72,9 @@
                         <label for="nome">Países:</label>
                         <select name="paisId" id="paisId" class="form-control">
                             <option value="" disabled selected>Selecione um país...</option>
-                            <option value="${listaPaises.id}">${listaPaises.nome}</option>
+                            <#list listaPaises as pais>
+                                <option value="${pais.id}">${pais.nome}</option>
+                            </#list>
                         </select>
                     </div>
                 </form>
