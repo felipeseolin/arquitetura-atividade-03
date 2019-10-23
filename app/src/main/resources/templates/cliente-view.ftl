@@ -68,6 +68,13 @@
                         <label for="nome">Limite de crédito:</label>
                         <input value="${(clienteAtual.limiteCredito)!}" name="limiteCredito" type="text" class="form-control" id="limiteCredito" placeholder="20.35">
                     </div>
+                    <div class="form-group">
+                        <label for="nome">Países:</label>
+                        <select name="paisId" id="paisId" class="form-control">
+                            <option value="" disabled selected>Selecione um país...</option>
+                            <option value="${listaPaises.id}">${listaPaises.nome}</option>
+                        </select>
+                    </div>
                 </form>
             </div>
 
@@ -79,6 +86,7 @@
                         <th>Idade</th>
                         <th>Telefone</th>
                         <th>Limite de Credito</th>
+                        <th>País</th>
                         <th>Ações</th>
                     </tr>
                     </thead>
@@ -89,6 +97,7 @@
                         <td>${cliente.idade}</td>
                         <td>${cliente.telefone}</td>
                         <td>${cliente.limiteCredito}</td>
+                        <td>${cliente.pais.nome}</td>
                         <td>
                             <a href="/cliente/preparaAlterar/${cliente.id}" class="btn btn-warning">Alterar</a>
                             <a href="/cliente/apagar/${cliente.id}" class="btn btn-danger">Excluir</a>

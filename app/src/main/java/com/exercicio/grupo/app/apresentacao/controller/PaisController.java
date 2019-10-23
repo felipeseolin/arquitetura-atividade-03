@@ -75,7 +75,7 @@ public class PaisController {
         return "redirect:/pais";
     }
 
-    private PaisModel buscaPaisPeloId (Long id) {
+    public PaisModel buscaPaisPeloId (Long id) {
         return paises.stream()
                 .filter(p -> p.getId().equals(id))
                 .findAny()
