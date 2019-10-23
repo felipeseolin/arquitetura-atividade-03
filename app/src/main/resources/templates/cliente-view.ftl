@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Gerenciamento de País</title>
+    <title>Gerenciamento de Cliente</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 
@@ -33,28 +33,40 @@
 <div class="container-fluid mt-3">
     <div class="card">
         <div class="card-header">
-            <h3>Gerenciamento de Paises</h3>
+            <h3>Gerenciamento de Clientes</h3>
         </div>
         <div class="card-body">
             <div>
 
-                <#if paisAtual??>
-                <form method="post" action="/pais/alterar">
+                <#if ClienteAtual??>
+                <form method="post" action="/cliente/alterar">
                     <div class="float-right mt-1 mb-1">
                         <input type="submit" class="btn btn-warning" value="Alterar"></input>
                     </div>
                     <#else>
-                    <form method="post" action="/pais/criar">
+                    <form method="post" action="/cliente/criar">
                         <div class="float-right mt-1 mb-1">
                             <input type="submit" class="btn btn-primary" value="Criar"></input>
                         </div>
                     </#if>
 
-                    <input type="hidden" name="id" value="${(paisAtual.id)!}"></input>
+                    <input type="hidden" name="id" value="${(clienteAtual.id)!}"></input>
 
                     <div class="form-group">
                         <label for="nome">Nome:</label>
-                        <input value="${(paisAtual.nome)!}" name="nome" type="text" class="form-control" id="nome" placeholder="Brasil">
+                        <input value="${(clienteAtual.nome)!}" name="nome" type="text" class="form-control" id="nome" placeholder="Fulano">
+                    </div>
+                    <div class="form-group">
+                        <label for="nome">Idade:</label>
+                        <input value="${(clienteAtual.idade)!}" name="idade" type="number" class="form-control" id="idade" placeholder="12">
+                    </div>
+                    <div class="form-group">
+                        <label for="nome">Telefone:</label>
+                        <input value="${(clienteAtual.telefone)!}" name="telefone" type="text" class="form-control" id="telefone" placeholder="123456">
+                    </div>
+                    <div class="form-group">
+                        <label for="nome">Limite de crédito:</label>
+                        <input value="${(clienteAtual.limiteCredito)!}" name="limiteCredito" type="text" class="form-control" id="limiteCredito" placeholder="20.35">
                     </div>
                 </form>
             </div>
@@ -64,16 +76,22 @@
                     <thead class="thead-dark">
                     <tr>
                         <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Telefone</th>
+                        <th>Limite de Credito</th>
                         <th>Ações</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <#list listaPaises as pais>
+                    <#list listaClientes as cliente>
                     <tr>
-                        <td>${pais.nome}</td>
+                        <td>${cliente.nome}</td>
+                        <td>${cliente.idade}</td>
+                        <td>${cliente.telefone}</td>
+                        <td>${cliente.limiteCredito}</td>
                         <td>
-                            <a href="/pais/preparaAlterar/${pais.id}" class="btn btn-warning">Alterar</a>
-                            <a href="/pais/apagar/${pais.id}" class="btn btn-danger">Excluir</a>
+                            <a href="/cliente/preparaAlterar/${cliente.id}" class="btn btn-warning">Alterar</a>
+                            <a href="/cliente/apagar/${cliente.id}" class="btn btn-danger">Excluir</a>
                         </td>
                     </tr>
                     </#list>
